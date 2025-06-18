@@ -1,64 +1,57 @@
-<div align="center"><strong>Next.js 15 Admin Dashboard Template</strong></div>
-<div align="center">Built with the Next.js App Router</div>
-<br />
 <div align="center">
-<a href="https://next-admin-dash.vercel.app/">Demo</a>
-<span> · </span>
-<a href="https://vercel.com/templates/next.js/admin-dashboard-tailwind-postgres-react-nextjs">Clone & Deploy</a>
-<span>
+<img src="https://raw.githubusercontent.com/user-attachments/assets/b8392131-0176-470b-9c7f-0e4871d18252/Parkwise%20Logo.png" alt="SpotLinkIO Logo" width="120" />
+<h1>SpotLinkIO - Frontend</h1>
+<strong>A modern, real-time frontend-UI for managing an IoT-based parking facility.</strong>
 </div>
 
-## Overview
+<br />
 
-This is a starter template using the following stack:
+<div align="center">
+<span>Built with the Next.js App Router, Go, and IoT</span>
+</div>
 
-- Framework - [Next.js (App Router)](https://nextjs.org)
-- Language - [TypeScript](https://www.typescriptlang.org)
-- Auth - [Auth.js](https://authjs.dev)
-- Database - [Postgres](https://vercel.com/postgres)
-- Deployment - [Vercel](https://vercel.com/docs/concepts/next.js/overview)
-- Styling - [Tailwind CSS](https://tailwindcss.com)
-- Components - [Shadcn UI](https://ui.shadcn.com/)
-- Analytics - [Vercel Analytics](https://vercel.com/analytics)
-- Formatting - [Prettier](https://prettier.io)
+<br />
 
-This template uses the new Next.js App Router. This includes support for enhanced layouts, colocation of components, tests, and styles, component-level data fetching, and more.
+<div align="center">
+<!-- Note: You can replace these with your actual links once deployed -->
+<a href="#">Live Demo</a>
+<span> · </span>
+<a href="https://github.com/your-username/smart-parking-admin-dashboard">Clone Repository</a>
+<span> · </span>
+<a href="https://github.com/your-username/smart-parking-system-iot">View Main IoT Project</a>
+</div>
 
-## Getting Started
+Overview
 
-During the deployment, Vercel will prompt you to create a new Postgres database. This will add the necessary environment variables to your project.
+This repository contains the source code for the Admin Dashboard of the IoT Smart Parking Management System. It provides parking facility operators with a powerful interface to monitor, manage, and analyze parking operations in real-time.
 
-Inside the Vercel Postgres dashboard, create a table based on the schema defined in this repository.
+This dashboard is built with a modern, high-performance tech stack:
 
-```
-CREATE TYPE status AS ENUM ('active', 'inactive', 'archived');
+Framework - Next.js (App Router)
 
-CREATE TABLE products (
-  id SERIAL PRIMARY KEY,
-  image_url TEXT NOT NULL,
-  name TEXT NOT NULL,
-  status status NOT NULL,
-  price NUMERIC(10, 2) NOT NULL,
-  stock INTEGER NOT NULL,
-  available_at TIMESTAMP NOT NULL
-);
-```
+Language - TypeScript
 
-Then, uncomment `app/api/seed.ts` and hit `http://localhost:3000/api/seed` to seed the database with products.
+Database - Postgres (for storing session logs, user data, and spot configurations)
 
-Next, copy the `.env.example` file to `.env` and update the values. Follow the instructions in the `.env.example` file to set up your GitHub OAuth application.
+Styling - Tailwind CSS
 
-```bash
-npm i -g vercel
-vercel link
-vercel env pull
-```
+UI Components - Shadcn UI
 
-Finally, run the following commands to start the development server:
+Formatting - Prettier
 
-```
-pnpm install
-pnpm dev
-```
+Key Features
 
-You should now be able to access the application at http://localhost:3000.
+Real-time Parking Map: A live, visual representation of the parking lot, showing the status of each spot (free, occupied, maintenance).
+
+Session Monitoring: View active parking sessions, including user details, entry time, and payment status.
+
+Manual Spot Control: Manually override the status of a parking spot in case of sensor failure or to reserve a spot for maintenance.
+
+User Management: View a list of registered users and their vehicle information.
+
+Analytics: (Future Scope) Dashboard for viewing key metrics like peak hours, average duration, and revenue.
+
+Getting Started
+
+Follow these steps to set up and run the project locally.
+
