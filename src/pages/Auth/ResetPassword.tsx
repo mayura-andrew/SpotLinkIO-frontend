@@ -114,7 +114,7 @@ export const ResetPassword: React.FC = () => {
 
                         <div className="gap-1 pb-10">
                             <p className="text-blue-600 text-base font-bold leading-6 uppercase">
-                                OPENCONNECT
+                                SpotLinkIO
                             </p>
                             <h2 className="text-black text-3xl font-semibold leading-10 tracking-tight">
                                 Reset Your Password

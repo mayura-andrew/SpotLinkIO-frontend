@@ -1,5 +1,5 @@
 {
-    "name": "openconnect-frontend",
+    "name": "spotlinkio-client",
     "private": true,
     "version": "0.0.0",
     "type": "module",
@@ -9,7 +9,10 @@
         "lint": "eslint .",
         "preview": "vite preview",
         "format": "prettier --write \"src/**/*.{ts,tsx}\"",
-        "check-format": "prettier --check \"src/**/*.{ts,tsx}\""
+        "check-format": "prettier --check \"src/**/*.{ts,tsx}\"",
+        "install": "pnpm install",
+        "add": "pnpm add",
+        "remove": "pnpm remove"
     },
     "dependencies": {
         "@fontsource/inter": "^5.1.0",

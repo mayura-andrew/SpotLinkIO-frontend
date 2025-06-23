@@ -16,7 +16,7 @@ export const PublicLayout = () => {
                     <Outlet />
                 </div>
             </main>
-            <About />
+            {/* <About /> */}
             <Footer />
             <RequestPanel
                 requests={requests}

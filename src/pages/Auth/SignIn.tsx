@@ -46,10 +46,10 @@ const SignIn: React.FC = () => {
                         {/* header title */}
                         <div className="gap-1 pb-10">
                             <p className="text-blue-600 text-base font-bold leading-6 uppercase">
-                                OPENCONNECT
+                                SpotLinkIO
                             </p>
                             <h2 className="text-black text-3xl font-semibold leading-10 tracking-tight">
-                                Idea Sharing & Collaboration Platform
+                                Smart Parking Solutions
                             </h2>
                             <p className="text-zinc-400 text-lg font-semibold leading-7">
                                 Sing in

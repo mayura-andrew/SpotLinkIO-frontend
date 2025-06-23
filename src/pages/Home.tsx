@@ -2,24 +2,22 @@ import React from 'react'
 import { Button } from '@/components/ui/button'
 import {
     ChevronRight,
-    Users,
-    Globe,
-    Lightbulb,
-    Calendar,
-    ArrowRight,
+    QrCode,
+    Map,
+    Car,
+    Zap,
 } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
-import ForHomeImage from '@/assets/images/auth/ForHome.svg'
+import ParkingHeroImage from '@/assets/home/SmartParkingHero.jpeg'
 import { Card } from '@/components/ui/card'
 import { useAuth } from '@/context/AuthContext'
 import { motion } from 'framer-motion'
-import TeamSection from '@/components/common/TeamSection.component'
 
 const Home: React.FC = () => {
     const navigate = useNavigate()
     const { isAuthenticated, user } = useAuth()
 
-    // Animation variants
+    // Animation variants (can be kept as they are)
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -58,43 +56,44 @@ const Home: React.FC = () => {
                                 animate={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.8 }}
                             >
+                                {/* --- CHANGE: Updated marketing tagline --- */}
                                 <div className="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-600 mb-4 animate-pulse">
-                                    {/* <Globe className="mr-2 h-3 w-3 text-green-600" />{' '} */}
                                     <span className="text-xs font-medium">
-                                        ✨ Connecting university students with
-                                        like-minded peers
+                                        ✨ Welcome to SpotLinkIO - The Future of Parking
                                     </span>
                                 </div>
+                                {/* --- CHANGE: Updated H1 and paragraph text based on auth state --- */}
                                 <h1 className="text-blue-600 text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
                                     {isAuthenticated
                                         ? `Welcome back${user?.firstname ? ', ' + user.firstname : ''}!`
-                                        : 'Connect, Collaborate, Learn Together'}
+                                        : 'Seamless Parking, Simplified.'}
                                 </h1>
                                 <p className="text-lg md:text-lg text-blue-900">
                                     {isAuthenticated
-                                        ? 'Continue exploring ideas and connecting with students and faculty across campus.'
-                                        : 'Join the OpenConnect campus community and discover meaningful connections with students, professors, and mentors in your field of study.'}
+                                        ? 'Ready to park? Your unique entry QR code is waiting for you in your dashboard.'
+                                        : 'Join SpotLinkIO to find, enter, and pay for parking effortlessly. No more circling for a spot.'}
                                 </p>
 
+                                {/* --- CHANGE: Updated buttons and navigation links --- */}
                                 {isAuthenticated ? (
                                     <div className="flex flex-col sm:flex-row gap-4">
                                         <Button
                                             className="text-base py-6 px-8 transition-all duration-300"
                                             onClick={() =>
-                                                navigate('/community')
+                                                navigate('/dashboard') // Navigate to user dashboard
                                             }
                                         >
-                                            Explore Community{' '}
+                                            Go to Dashboard{' '}
                                             <ChevronRight className="ml-2 h-5 w-5" />
                                         </Button>
                                         <Button
                                             variant="outline"
                                             className="text-base py-6 px-8 hover:bg-blue-50 transition-all duration-300"
                                             onClick={() =>
-                                                navigate('/myprofile')
+                                                navigate('/profile') // Navigate to user profile
                                             }
                                         >
-                                            View Your Profile
+                                            My Profile
                                         </Button>
                                     </div>
                                 ) : (
@@ -105,7 +104,7 @@ const Home: React.FC = () => {
                                                 navigate('/auth/signup')
                                             }
                                         >
-                                            Let's Start{' '}
+                                            Get Started{' '}
                                             <ChevronRight className="ml-2 h-5 w-5" />
                                         </Button>
                                         <Button
@@ -121,6 +120,7 @@ const Home: React.FC = () => {
                                 )}
                             </motion.div>
 
+                            {/* --- CHANGE: Updated hero image --- */}
                             <motion.div
                                 className="relative flex items-center justify-center"
                                 initial={{ opacity: 0, x: 50 }}
@@ -131,8 +131,8 @@ const Home: React.FC = () => {
                                     <div className="absolute -z-10 w-72 h-72 bg-blue-100 rounded-full blur-3xl opacity-70"></div>
                                     <div className="w-5/6 h-5/6 flex items-center justify-center">
                                         <img
-                                            src={ForHomeImage}
-                                            alt="OpenConnect"
+                                            src={ParkingHeroImage}
+                                            alt="SpotLinkIO Smart Parking"
                                             className="max-w-full h-auto relative z-10 drop-shadow-2xl"
                                         />
                                     </div>
@@ -147,6 +147,7 @@ const Home: React.FC = () => {
                 {/* Features Section */}
                 <section id="features" className="py-24">
                     <div className="container mx-auto px-4 md:px-6">
+                        {/* --- CHANGE: Updated section heading --- */}
                         <motion.div
                             className="text-center mb-16"
                             initial={{ opacity: 0, y: 20 }}
@@ -155,15 +156,15 @@ const Home: React.FC = () => {
                             transition={{ duration: 0.8 }}
                         >
                             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                                Why Choose OpenConnect?
+                                Why SpotLinkIO?
                             </h2>
                             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                                We're building the network that helps students
-                                and faculty connect, learn, and achieve more
-                                together.
+                                We use IoT technology to transform the parking experience,
+                                making it faster, simpler, and more secure for everyone.
                             </p>
                         </motion.div>
 
+                        {/* --- CHANGE: Updated feature cards with relevant icons and text --- */}
                         <motion.div
                             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto"
                             variants={containerVariants}
@@ -173,39 +174,31 @@ const Home: React.FC = () => {
                         >
                             {[
                                 {
-                                    icon: Users,
-                                    title: 'Meaningful Connections',
-                                    description:
-                                        'Connect with like-minded professionals.',
-                                    bgColor:
-                                        'bg-gradient-to-br from-blue-100 to-blue-50',
+                                    icon: QrCode,
+                                    title: 'QR Code Entry',
+                                    description: 'Scan your unique QR code for quick, touchless gate access.',
+                                    bgColor: 'bg-gradient-to-br from-blue-100 to-blue-50',
                                     textColor: 'text-blue-600',
                                 },
                                 {
-                                    icon: Globe,
-                                    title: 'Global Community',
-                                    description:
-                                        'Join a campus-wide network spanning all disciplines',
-                                    bgColor:
-                                        'bg-gradient-to-br from-cyan-100 to-cyan-50',
+                                    icon: Map,
+                                    title: 'Live Spot Guidance',
+                                    description: 'Get assigned a spot instantly and navigate right to it with our in-app map.',
+                                    bgColor: 'bg-gradient-to-br from-cyan-100 to-cyan-50',
                                     textColor: 'text-cyan-600',
                                 },
                                 {
-                                    icon: Lightbulb,
-                                    title: 'Share Ideas',
-                                    description:
-                                        'Exchange research ideas and get feedback from experts',
-                                    bgColor:
-                                        'bg-gradient-to-br from-purple-100 to-purple-50',
+                                    icon: Car,
+                                    title: '99% Availability',
+                                    description: 'Our system only lets you in if a spot is confirmed to be available for you.',
+                                    bgColor: 'bg-gradient-to-br from-purple-100 to-purple-50',
                                     textColor: 'text-purple-600',
                                 },
                                 {
-                                    icon: Calendar,
-                                    title: 'Events & Meetups',
-                                    description:
-                                        'Participate in campus events and academic meet-ups',
-                                    bgColor:
-                                        'bg-gradient-to-br from-teal-100 to-teal-50',
+                                    icon: Zap,
+                                    title: 'Effortless Payments',
+                                    description: 'Pay directly in the app and exit seamlessly. No tickets, no machines.',
+                                    bgColor: 'bg-gradient-to-br from-teal-100 to-teal-50',
                                     textColor: 'text-teal-600',
                                 },
                             ].map((feature, index) => (
@@ -234,66 +227,6 @@ const Home: React.FC = () => {
                         </motion.div>
                     </div>
                 </section>
-
-               
-                    {/* Background decoration */}
-                    <div className="absolute inset-0 z-0 overflow-hidden">
-                        <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-blue-100 opacity-50 blur-3xl"></div>
-                        <div className="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-purple-100 opacity-40 blur-3xl"></div>
-                    </div>
-
-                    <div className="container mx-auto px-4 md:px-6 text-center py-10 relative z-10">
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.8 }}
-                        >
-                            {isAuthenticated ? (
-                                <>
-                                    <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                                        Ready to grow your academic network?
-                                    </h2>
-                                    <p className="text-xl text-gray-500 mb-8 max-w-3xl mx-auto">
-                                        Join students and faculty who are
-                                        already connecting, collaborating, and
-                                        learning together.
-                                    </p>
-                                    <Button
-                                        className="text-base py-6 px-10 shadow-lg hover:shadow-xl transition-all duration-300"
-                                        onClick={() => navigate('/view-ideas')}
-                                    >
-                                        <span className="flex items-center">
-                                            Explore Community Ideas{' '}
-                                            <ArrowRight className="ml-2 h-5 w-5 animate-bounce-horizontal" />
-                                        </span>
-                                    </Button>
-                                </>
-                            ) : (
-                                <>
-                                    <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                                        Ready to grow your professional network?
-                                    </h2>
-                                    <p className="text-xl text-gray-500 mb-8 max-w-3xl mx-auto">
-                                        Join thousands of professionals who are
-                                        already connecting, collaborating, and
-                                        growing together.
-                                    </p>
-                                    <Button
-                                        className="text-base py-6 px-10 shadow-lg hover:shadow-xl transition-all duration-300"
-                                        onClick={() => navigate('/community')}
-                                    >
-                                        <span className="flex items-center">
-                                            Explore Community{' '}
-                                            <ArrowRight className="ml-2 h-5 w-5 animate-bounce-horizontal" />
-                                        </span>
-                                    </Button>
-                                </>
-                            )}
-                        </motion.div>
-                    </div>
-                    <TeamSection />
-                
             </div>
         </>
     )
